@@ -28,6 +28,10 @@ ulong TriglavChess_GetAttackedFieldsWhiteSinglePiece(const ulong takenFields, co
 
 ulong TriglavChess_GetAttackedFieldsBlackSinglePiece(const ulong takenFields, const int hasBlackKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
 
+ulong TriglavChess_GetAttackedFieldsWhiteForPrecompute(const ulong takenFields, const int hasWhiteKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
+
+ulong TriglavChess_GetAttackedFieldsBlackForPrecompute(const ulong takenFields, const int hasBlackKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
+
 ulong TriglavChess_GetAttackedFieldsForHeuristicWhiteSinglePiece(const ulong takenFields, const int hasWhiteKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
 
 ulong TriglavChess_GetAttackedFieldsForHeuristicBlackSinglePiece(const ulong takenFields, const int hasBlackKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);

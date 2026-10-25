@@ -1163,5 +1163,11 @@ namespace Triglav.Chess.Engine.Core
         public Boolean Equals(Position other) => this.State.Equals(other.State) && this.OnMove == other.OnMove;
 
         public override Boolean Equals(Object obj) => this.Equals((Position)obj);
+
+        static Position()
+        {
+            ZobristTable.Init();
+            NativeInterface.PrecomputedMovesInitialise();
+        }
     }
 }

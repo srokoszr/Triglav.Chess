@@ -1,6 +1,7 @@
 using System;
 using System.Windows.Forms;
 using Triglav.Chess.Engine.Core;
+using Triglav.Chess.Interop;
 
 namespace Triglav.Chess.App.GUI
 {

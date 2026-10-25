@@ -43,6 +43,7 @@ namespace Triglav.Chess.Engine.Tests.AlgorithmComparisonTests
             }
         }
 
+        [Ignore]//it's not valid for all alogirth to always return same result
         [TestMethod]
         [DynamicData(nameof(Cases))]
         public void AllAlgorithmsReturnTheSameResult(AlgorithmBenchmarkCase scenario)

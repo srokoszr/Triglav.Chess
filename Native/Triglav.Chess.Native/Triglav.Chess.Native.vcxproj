@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="PieceMovesPrecomputed.h" />
     <ClInclude Include="PositionTree.h" />
     <ClInclude Include="PositionTreeNodeCacheTypes.h" />
     <ClInclude Include="PositionTreeTypes.h" />
@@ -161,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BuildInfo.c" />
+    <ClCompile Include="PieceMovesPrecomputed.c" />
     <ClCompile Include="PositionTree.c" />
     <ClCompile Include="PositionTreeNodeCache.c" />
     <ClCompile Include="Evaluation.c" />

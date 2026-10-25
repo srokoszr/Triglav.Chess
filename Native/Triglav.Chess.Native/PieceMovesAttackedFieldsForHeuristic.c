@@ -1,5 +1,6 @@
 #include "PieceMoves.h"
 #include "GlobalConstants.h"
+#include "PieceMovesPrecomputed.h"
 #include "InteropInterface.h"
 
 ulong TriglavChess_External_GetAttackedFieldsForHeuristicWhite(const PositionData position)

@@ -58,6 +58,9 @@
     <ClInclude Include="PositionTreeNodeCacheTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PieceMovesPrecomputed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -117,6 +120,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ObjectPool.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PieceMovesPrecomputed.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

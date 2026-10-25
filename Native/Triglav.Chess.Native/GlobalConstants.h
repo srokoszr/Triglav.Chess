@@ -14,20 +14,5 @@
 
 #define PreAllocatedBufferSize (42 * 4)
 
-#define WhiteKingFirstMovesLength 14
-#define BlackKingFirstMovesLength 14
-#define WhiteQueenFirstMovesLength 7
-#define BlackQueenFirstMovesLength 7
-
 extern const PositionData POSITION_EMPTY;
 extern const PositionKey POSITION_KEY_EMPTY;
-
-extern const int PieceMoves_WhiteKingFirstMoves[WhiteKingFirstMovesLength];
-extern const int PieceMoves_BlackKingFirstMoves[BlackKingFirstMovesLength];
-extern const int PieceMoves_WhiteQueenFirstMoves[WhiteQueenFirstMovesLength];
-extern const int PieceMoves_BlackQueenFirstMoves[BlackQueenFirstMovesLength];
-
-extern const ulong PieceMovesAttackedFields_WhiteKingFirstMoves;
-extern const ulong PieceMovesAttackedFields_BlackKingFirstMoves;
-extern const ulong PieceMovesAttackedFields_WhiteQueenFirstMoves;
-extern const ulong PieceMovesAttackedFields_BlackQueenFirstMoves;

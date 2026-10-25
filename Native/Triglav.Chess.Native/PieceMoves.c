@@ -1,5 +1,6 @@
 #include "PieceMoves.h"
 #include "GlobalConstants.h"
+#include "PieceMovesPrecomputed.h"
 #include "InteropInterface.h"
 
 int TriglavChess_External_GetMovesNoCheckValidationWhite(const PositionData position, MoveWithPieceStruct* restrict result)

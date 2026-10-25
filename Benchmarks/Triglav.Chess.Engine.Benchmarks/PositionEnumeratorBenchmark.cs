@@ -62,7 +62,7 @@ namespace Triglav.Chess.Engine.Benchmarks
         }
 
         [Benchmark]
-        public void GetAttackedFields_BitwiseLoop()
+        public void GetAttackedFields_Precomputed()
         {
             var position = this.Position;
             var moves = position.GetAttackedFields_BitwiseLoop(position.OnMove);

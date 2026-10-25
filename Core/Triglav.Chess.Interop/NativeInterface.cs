@@ -20,6 +20,12 @@ namespace Triglav.Chess.Interop
 
         #endregion
 
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
+        [LibraryImport("Triglav.Chess.Native.dll", EntryPoint = "TriglavChess_External_PrecomputedMoves_Initialise")]
+        private static unsafe partial void PrecomputedMovesInitialiseInterop();
+
+        public static unsafe void PrecomputedMovesInitialise() => PrecomputedMovesInitialiseInterop();
+
         #region Move
 
         [UnmanagedCallConv(CallConvs = new Type[] { typeof(CallConvCdecl) })]
