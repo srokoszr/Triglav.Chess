@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\Triglav.Chess.Interop\Triglav.Chess.Interop.csproj">
+	  <Private>True</Private>
+	</ProjectReference>
+	<ProjectReference Include="..\Triglav.Chess.Model\Triglav.Chess.Model.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="protobuf-net" Version="3.2.56" />
+    <PackageReference Include="protobuf-net.Core" Version="3.2.56" />
+  </ItemGroup>
+
+</Project>

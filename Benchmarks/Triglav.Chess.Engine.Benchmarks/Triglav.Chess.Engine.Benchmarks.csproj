@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="BenchmarkDotNet" Version="0.15.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Triglav.Chess.Engine\Triglav.Chess.Engine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="../Shared/MinMaxComparisonCases.cs" Link="Comparison/MinMaxComparisonCases.cs" />
+    <Compile Include="../Shared/AlgorithmBenchmarkCase.cs" Link="Comparison/AlgorithmBenchmarkCase.cs" />
+    <Compile Include="../Shared/Rc5GamePositions.cs" Link="Comparison/Rc5GamePositions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../Tests/Triglav.Chess.Engine.Tests/TestData/BlackRc5Threefold.PGN" LogicalName="BlackRc5Threefold.PGN" />
+  </ItemGroup>
+</Project>

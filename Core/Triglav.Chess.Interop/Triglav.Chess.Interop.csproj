@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Triglav.Chess.Model\Triglav.Chess.Model.csproj" />
+  </ItemGroup>
+  <!--
+  <Target Name="CopyNativeDLLs" AfterTargets="AfterBuild">
+    <ItemGroup>
+      <_FilesToCopy Include="$(SolutionDir)$(Platform)\$(Configuration)\*.*" />
+    </ItemGroup>
+
+    <Message Importance="high" Text="Copying @(_FilesToCopy)..." />
+
+    <Copy SourceFiles="@(_FilesToCopy)" DestinationFolder="$(OutputPath)" ContinueOnError="true" />
+    
+  </Target>
+  -->
+  <ItemGroup>
+    <None Update="Triglav.Chess.Native.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Update="Triglav.Chess.Native.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

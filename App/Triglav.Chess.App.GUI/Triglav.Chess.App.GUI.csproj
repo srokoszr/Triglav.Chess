@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\CBurnett\Chess_bdt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_blt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_kdt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_klt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_ndt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_nlt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_pdt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_plt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_qdt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_qlt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_rdt45.svg" />
+    <None Remove="Assets\CBurnett\Chess_rlt45.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\CBurnett\Chess_bdt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_blt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_kdt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_klt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_ndt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_nlt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_pdt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_plt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_qdt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_qlt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_rdt45.svg" />
+    <EmbeddedResource Include="Assets\CBurnett\Chess_rlt45.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Examples\AnalysisExample.TgGame" LogicalName="AnalysisExample.TgGame" />
+    <None Update="Examples\AnalysisExample.TgGame" CopyToOutputDirectory="Never" CopyToPublishDirectory="Never" />
+    <PackageReference Include="Svg" Version="3.4.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Triglav.Chess.Engine\Triglav.Chess.Engine.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

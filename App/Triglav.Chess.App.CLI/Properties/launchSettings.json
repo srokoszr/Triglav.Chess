@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Triglav.Chess.App.CLI": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

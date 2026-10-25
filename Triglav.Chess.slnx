@@ -1,0 +1,65 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/App/">
+    <Project Path="App/Triglav.Chess.App.CLI/Triglav.Chess.App.CLI.csproj">
+      <Platform Project="x64" />
+      <Build Solution="*|Any CPU" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="App/Triglav.Chess.App.GUI/Triglav.Chess.App.GUI.csproj">
+      <Platform Project="x64" />
+      <Build Solution="*|Any CPU" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/Benchmarks/">
+    <Project Path="Benchmarks/Triglav.Chess.Engine.Benchmarks/Triglav.Chess.Engine.Benchmarks.csproj">
+      <Platform Project="x64" />
+      <Build Solution="*|Any CPU" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/Core/">
+    <Project Path="Core/Triglav.Chess.Engine/Triglav.Chess.Engine.csproj">
+      <Platform Project="x64" />
+      <Build Solution="*|Any CPU" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="Core/Triglav.Chess.Interop/Triglav.Chess.Interop.csproj" Id="17d4b1f6-dc79-4f73-bacc-ffcb4346a28e">
+      <BuildDependency Project="Native/Triglav.Chess.Native/Triglav.Chess.Native.vcxproj" />
+      <Platform Project="x64" />
+      <Build Solution="*|Any CPU" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+    <Project Path="Core/Triglav.Chess.Model/Triglav.Chess.Model.csproj">
+      <Platform Project="x64" />
+      <Build Solution="*|Any CPU" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/Native/">
+    <Project Path="Native/Triglav.Chess.Native/Triglav.Chess.Native.vcxproj" Id="79562ed3-83f0-49ba-a217-a746380c0ed9" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="CHESS_RULES.md" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="COPYRIGHT.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="LICENSE.md" />
+    <File Path="README.md" />
+    <File Path="THIRD_PARTY_NOTICES.md" />
+    <File Path="TODO.md" />
+  </Folder>
+  <Folder Name="/_Tests/">
+    <Project Path="Tests/Triglav.Chess.Engine.Tests/Triglav.Chess.Engine.Tests.csproj">
+      <Platform Project="x64" />
+      <Build Solution="*|Any CPU" Project="false" />
+      <Build Solution="*|x86" Project="false" />
+    </Project>
+  </Folder>
+</Solution>

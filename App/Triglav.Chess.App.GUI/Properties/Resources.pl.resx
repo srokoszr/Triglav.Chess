@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AgreedDrawResult" xml:space="preserve">
+    <value>Remis za obopólną zgodą</value>
+  </data>
+  <data name="AnalysePosition" xml:space="preserve">
+    <value>Analizuj tę pozycję</value>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>Szachy Triglav</value>
+  </data>
+  <data name="AssumeMedievalPgn" xml:space="preserve">
+    <value>Traktuj PGN bez oznaczenia wariantu jako szachy średniowieczne Triglav</value>
+  </data>
+  <data name="Black" xml:space="preserve">
+    <value>Czarne</value>
+  </data>
+  <data name="BlackMateResult" xml:space="preserve">
+    <value>Czarne wygrywają przez mat</value>
+  </data>
+  <data name="BlackNakedMateResult" xml:space="preserve">
+    <value>Czarne wygrywają przez ogołocenie króla</value>
+  </data>
+  <data name="BlackResignResult" xml:space="preserve">
+    <value>Czarne wygrywają przez poddanie</value>
+  </data>
+  <data name="BlackStalemateResult" xml:space="preserve">
+    <value>Czarne wygrywają przez pat</value>
+  </data>
+  <data name="BlackWinResult" xml:space="preserve">
+    <value>Czarne wygrywają</value>
+  </data>
+  <data name="BoardFiles" xml:space="preserve">
+    <value>ABCDEFGH</value>
+  </data>
+  <data name="BoardRanks" xml:space="preserve">
+    <value>87654321</value>
+  </data>
+  <data name="CentipawnEvaluation" xml:space="preserve">
+    <value>{0} cp</value>
+  </data>
+  <data name="ChooseGameDestination" xml:space="preserve">
+    <value>Wybierz miejsce zapisu partii</value>
+  </data>
+  <data name="ChooseGameFile" xml:space="preserve">
+    <value>Wybierz plik partii</value>
+  </data>
+  <data name="CloseWindow" xml:space="preserve">
+    <value>Zamknij</value>
+  </data>
+  <data name="Colour" xml:space="preserve">
+    <value>Kolor</value>
+  </data>
+  <data name="CurrentEvaluation" xml:space="preserve">
+    <value>Bieżąca ocena:</value>
+  </data>
+  <data name="DrawOffer" xml:space="preserve">
+    <value>Zaproponuj remis</value>
+  </data>
+  <data name="DrawResult" xml:space="preserve">
+    <value>Remis</value>
+  </data>
+  <data name="DrunkZebra" xml:space="preserve">
+    <value>Pijana zebra</value>
+  </data>
+  <data name="EditAdd" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="EditDelete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="EditMode" xml:space="preserve">
+    <value>Tryb edycji</value>
+  </data>
+  <data name="EditMove" xml:space="preserve">
+    <value>Przesuń</value>
+  </data>
+  <data name="EditSpecialMoves" xml:space="preserve">
+    <value>Prawa pierwszego ruchu</value>
+  </data>
+  <data name="EmptyWithKings" xml:space="preserve">
+    <value>Tylko królowie</value>
+  </data>
+  <data name="EngineErrorTitle" xml:space="preserve">
+    <value>Błąd silnika</value>
+  </data>
+  <data name="EngineFailure" xml:space="preserve">
+    <value>Silnik nie zdołał wykonać ruchu. Nadal możesz zapisać partię.</value>
+  </data>
+  <data name="EngineIsThinking" xml:space="preserve">
+    <value>Silnik się namyśla...</value>
+  </data>
+  <data name="EngineStopped" xml:space="preserve">
+    <value>Silnik zatrzymany</value>
+  </data>
+  <data name="EngineStrength" xml:space="preserve">
+    <value>Siła silnika:</value>
+  </data>
+  <data name="EvaluationValue" xml:space="preserve">
+    <value>Wartość oceny</value>
+  </data>
+  <data name="ExportPgnMenu" xml:space="preserve">
+    <value>&amp;Eksportuj PGN…</value>
+  </data>
+  <data name="ExportPgnTitle" xml:space="preserve">
+    <value>Eksportuj partię do PGN</value>
+  </data>
+  <data name="FenFilter" xml:space="preserve">
+    <value>Zapis pozycji FEN</value>
+  </data>
+  <data name="FileAccessDenied" xml:space="preserve">
+    <value>Odmowa dostępu do pliku. Wybierz inne miejsce lub sprawdź uprawnienia.</value>
+  </data>
+  <data name="FileErrorTitle" xml:space="preserve">
+    <value>Nie można zapisać lub wczytać pliku</value>
+  </data>
+  <data name="FileErrorWithPath" xml:space="preserve">
+    <value>{0}
+
+Plik: {1}</value>
+  </data>
+  <data name="FileInvalid" xml:space="preserve">
+    <value>Plik jest pusty, uszkodzony lub zawiera nieobsługiwane dane.</value>
+  </data>
+  <data name="FileIoError" xml:space="preserve">
+    <value>Nie można odczytać lub zapisać pliku. Sprawdź, czy lokalizacja istnieje i czy plik nie jest zablokowany.</value>
+  </data>
+  <data name="FileMenu" xml:space="preserve">
+    <value>&amp;Plik</value>
+  </data>
+  <data name="FileUnsupported" xml:space="preserve">
+    <value>Wybierz obsługiwany typ pliku w oknie wyboru pliku.</value>
+  </data>
+  <data name="GameErrorResult" xml:space="preserve">
+    <value>Partia przerwana z powodu błędu</value>
+  </data>
+  <data name="GameFinished" xml:space="preserve">
+    <value>Partia zakończona</value>
+  </data>
+  <data name="GameOptionsTitle" xml:space="preserve">
+    <value>Ustawienia nowej partii</value>
+  </data>
+  <data name="GameResultTitle" xml:space="preserve">
+    <value>Wynik partii</value>
+  </data>
+  <data name="GameTitle" xml:space="preserve">
+    <value>Partia — Szachy Triglav</value>
+  </data>
+  <data name="GiveUp" xml:space="preserve">
+    <value>Poddaj się</value>
+  </data>
+  <data name="HumanMode" xml:space="preserve">
+    <value>Gra naśladująca człowieka</value>
+  </data>
+  <data name="ImportNewGameNotice" xml:space="preserve">
+    <value>Gra z końcowej pozycji rozpocznie nową partię; import nie wznawia pierwotnej partii.</value>
+  </data>
+  <data name="ImportGameMenu" xml:space="preserve">
+    <value>Importuj partię</value>
+  </data>
+  <data name="ImportGameTitle" xml:space="preserve">
+    <value>Importuj partię</value>
+  </data>
+  <data name="InvalidEngineMove" xml:space="preserve">
+    <value>Silnik zwrócił nieprawidłowy ruch. Pozycja i zapisane ruchy nie zostały zmienione.</value>
+  </data>
+  <data name="LegacyPgn" xml:space="preserve">
+    <value>Zezwól na naprawy starszych plików PGN Triglav</value>
+  </data>
+  <data name="LoadPosition" xml:space="preserve">
+    <value>Wczytaj pozycję</value>
+  </data>
+  <data name="LoadPositionTitle" xml:space="preserve">
+    <value>Wczytaj pozycję</value>
+  </data>
+  <data name="Master" xml:space="preserve">
+    <value>Mistrz szachów średniowiecznych</value>
+  </data>
+  <data name="MinMaxEvaluation" xml:space="preserve">
+    <value>Ocena wyszukiwania:</value>
+  </data>
+  <data name="NoImportWarnings" xml:space="preserve">
+    <value>Brak</value>
+  </data>
+  <data name="OpenFinalPosition" xml:space="preserve">
+    <value>Otwórz końcową pozycję w edytorze</value>
+  </data>
+  <data name="PercentageEvaluation" xml:space="preserve">
+    <value>{0} %</value>
+  </data>
+  <data name="PgnDiagnosticFormat" xml:space="preserve">
+    <value>{0}
+Wiersz: {1}; kolumna: {2}; półruch: {3}; token: {4}</value>
+  </data>
+  <data name="PgnErrorAmbiguousMove" xml:space="preserve">
+    <value>Ruch nie wskazuje jednoznacznie bierki mogącej go wykonać.</value>
+  </data>
+  <data name="PgnErrorCommentsDiscarded" xml:space="preserve">
+    <value>Komentarze zostały odczytane, lecz importer ich nie zachowuje.</value>
+  </data>
+  <data name="PgnErrorDuplicateHeader" xml:space="preserve">
+    <value>Nagłówek PGN został powtórzony.</value>
+  </data>
+  <data name="PgnErrorIllegalMove" xml:space="preserve">
+    <value>Ruch jest niedozwolony lub zapisany w nieobsługiwanej notacji algebraicznej.</value>
+  </data>
+  <data name="PgnErrorInvalidEncoding" xml:space="preserve">
+    <value>Plik nie zawiera prawidłowego tekstu UTF-8.</value>
+  </data>
+  <data name="PgnErrorInvalidFen" xml:space="preserve">
+    <value>Ustawienie lub średniowieczna pozycja FEN jest nieprawidłowa.</value>
+  </data>
+  <data name="PgnErrorInvalidMetadata" xml:space="preserve">
+    <value>Metadane PGN są nieprawidłowe.</value>
+  </data>
+  <data name="PgnErrorInvalidNumber" xml:space="preserve">
+    <value>Numer ruchu lub strona na ruchu jest nieprawidłowa.</value>
+  </data>
+  <data name="PgnErrorInvalidResult" xml:space="preserve">
+    <value>Wynik partii lub końcowy znacznik wyniku jest nieprawidłowy albo nieobecny.</value>
+  </data>
+  <data name="PgnErrorLegacyRepair" xml:space="preserve">
+    <value>Naprawiono wadę starszego pliku PGN Triglav.</value>
+  </data>
+  <data name="PgnErrorLimitExceeded" xml:space="preserve">
+    <value>Przekroczono limit importu lub licznika pozycji.</value>
+  </data>
+  <data name="PgnErrorMismatchedResult" xml:space="preserve">
+    <value>Zadeklarowane wyniki lub przyczyna zakończenia są sprzeczne ze sobą albo z odtworzoną partią.</value>
+  </data>
+  <data name="PgnErrorMissingVariant" xml:space="preserve">
+    <value>PGN nie ma oznaczenia wariantu. Jeśli jest to partia Triglav, jawnie wybierz opcję wariantu średniowiecznego.</value>
+  </data>
+  <data name="PgnErrorMovesAfterEnd" xml:space="preserve">
+    <value>PGN zawiera ruchy po zakończeniu partii.</value>
+  </data>
+  <data name="PgnErrorSnapshotMismatch" xml:space="preserve">
+    <value>Zapisana pozycja nie odpowiada zapisanym ruchom.</value>
+  </data>
+  <data name="PgnErrorSyntax" xml:space="preserve">
+    <value>Nieprawidłowa składnia PGN.</value>
+  </data>
+  <data name="PgnErrorUnknownVariant" xml:space="preserve">
+    <value>Ten wariant szachów nie jest obsługiwany.</value>
+  </data>
+  <data name="PgnErrorUnmarkedVariant" xml:space="preserve">
+    <value>Plik bez oznaczenia wariantu został jawnie zinterpretowany jako szachy średniowieczne Triglav.</value>
+  </data>
+  <data name="PgnErrorUnsupportedConstruct" xml:space="preserve">
+    <value>Ten element PGN lub plik z wieloma partiami nie jest obsługiwany.</value>
+  </data>
+  <data name="PgnErrorUnsupportedVersion" xml:space="preserve">
+    <value>Ta wersja wariantu Triglav nie jest obsługiwana.</value>
+  </data>
+  <data name="PgnFilter" xml:space="preserve">
+    <value>Zapis partii PGN</value>
+  </data>
+  <data name="GameSummary" xml:space="preserve">
+    <value>Plik: {0}
+Białe: {1}
+Czarne: {2}
+Wynik: {3}
+Zapisane półruchy: {4}
+
+Ostrzeżenia:
+{5}</value>
+  </data>
+  <data name="Pieces" xml:space="preserve">
+    <value>Bierki</value>
+  </data>
+  <data name="PlayPosition" xml:space="preserve">
+    <value>Graj z tej pozycji</value>
+  </data>
+  <data name="PlayWithEngine" xml:space="preserve">
+    <value>Nowa gra z Triglavem</value>
+  </data>
+  <data name="PlayWithFriend" xml:space="preserve">
+    <value>Nowa gra z kolegą</value>
+  </data>
+  <data name="PositionEditor" xml:space="preserve">
+    <value>Edytor pozycji</value>
+  </data>
+  <data name="PositionEditorTitle" xml:space="preserve">
+    <value>Edytor pozycji</value>
+  </data>
+  <data name="PositionFileName" xml:space="preserve">
+    <value>pozycja</value>
+  </data>
+  <data name="PrinceKaspian" xml:space="preserve">
+    <value>Książę Kaspian</value>
+  </data>
+  <data name="RandomMoves" xml:space="preserve">
+    <value>Losowe ruchy</value>
+  </data>
+  <data name="ReadGame" xml:space="preserve">
+    <value>Wczytaj partię</value>
+  </data>
+  <data name="Reenactor" xml:space="preserve">
+    <value>Rekonstruktor</value>
+  </data>
+  <data name="RepetitionDrawResult" xml:space="preserve">
+    <value>Remis przez trzykrotne powtórzenie pozycji</value>
+  </data>
+  <data name="SaveGameAsMenu" xml:space="preserve">
+    <value>Zapisz partię &amp;jako…</value>
+  </data>
+  <data name="SaveGameMenu" xml:space="preserve">
+    <value>&amp;Zapisz partię</value>
+  </data>
+  <data name="SavePosition" xml:space="preserve">
+    <value>Zapisz pozycję</value>
+  </data>
+  <data name="SavePositionMenu" xml:space="preserve">
+    <value>Zapisz p&amp;ozycję…</value>
+  </data>
+  <data name="SavePositionTitle" xml:space="preserve">
+    <value>Zapisz pozycję</value>
+  </data>
+  <data name="ShowCurrentEvaluation" xml:space="preserve">
+    <value>Pokaż bieżącą ocenę</value>
+  </data>
+  <data name="ShowMinMaxEvaluation" xml:space="preserve">
+    <value>Pokaż ocenę wyszukiwania</value>
+  </data>
+  <data name="ShowWinChance" xml:space="preserve">
+    <value>Pokaż szanse na wygraną</value>
+  </data>
+  <data name="SideToMove" xml:space="preserve">
+    <value>Strona na ruchu</value>
+  </data>
+  <data name="SpecialMoveAvailable" xml:space="preserve">
+    <value>Specjalny pierwszy ruch dostępny</value>
+  </data>
+  <data name="StartingPosition" xml:space="preserve">
+    <value>Pozycja początkowa</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Stan</value>
+  </data>
+  <data name="TerminalEvaluation" xml:space="preserve">
+    <value>{0} (ruchy: {1})</value>
+  </data>
+  <data name="Tourist" xml:space="preserve">
+    <value>Turysta</value>
+  </data>
+  <data name="Triglav" xml:space="preserve">
+    <value>Trzygłów</value>
+  </data>
+  <data name="TriglavGameFilter" xml:space="preserve">
+    <value>Partia Triglav</value>
+  </data>
+  <data name="TriglavPositionFilter" xml:space="preserve">
+    <value>Pozycja Triglav</value>
+  </data>
+  <data name="UnfinishedResult" xml:space="preserve">
+    <value>Partia niezakończona</value>
+  </data>
+  <data name="White" xml:space="preserve">
+    <value>Białe</value>
+  </data>
+  <data name="WhiteMateResult" xml:space="preserve">
+    <value>Białe wygrywają przez mat</value>
+  </data>
+  <data name="WhiteNakedMateResult" xml:space="preserve">
+    <value>Białe wygrywają przez ogołocenie króla</value>
+  </data>
+  <data name="WhiteResignResult" xml:space="preserve">
+    <value>Białe wygrywają przez poddanie</value>
+  </data>
+  <data name="WhiteStalemateResult" xml:space="preserve">
+    <value>Białe wygrywają przez pat</value>
+  </data>
+  <data name="WhiteWinResult" xml:space="preserve">
+    <value>Białe wygrywają</value>
+  </data>
+  <data name="WinChance" xml:space="preserve">
+    <value>Szanse na wygraną:</value>
+  </data>
+  <data name="YourMove" xml:space="preserve">
+    <value>Twój ruch!</value>
+  </data>
+  <data name="GameFilesFilter" xml:space="preserve">
+    <value>Pliki partii</value>
+  </data>
+  <data name="UnknownPlayer" xml:space="preserve">
+    <value>Nieznany gracz</value>
+  </data>
+  <data name="ReconstructedGameCounters" xml:space="preserve">
+    <value>Liczniki ruchów odtworzono z ruchów zapisanych w starszym pliku partii.</value>
+  </data>
+  <data name="GameReplayIllegalMove" xml:space="preserve">
+    <value>Partia zawiera niedozwolony ruch.</value>
+  </data>
+  <data name="GameReplayMovesAfterEnd" xml:space="preserve">
+    <value>Partia zawiera ruchy po jej zakończeniu.</value>
+  </data>
+  <data name="GameReplayCounterLimit" xml:space="preserve">
+    <value>Liczniki ruchów przekraczają obsługiwany zakres.</value>
+  </data>
+  <data name="GameReplaySnapshotMismatch" xml:space="preserve">
+    <value>Zapisana pozycja nie zgadza się z ruchami.</value>
+  </data>
+  <data name="GameReplayDiagnosticFormat" xml:space="preserve">
+    <value>{0} Półruch: {1}.</value>
+  </data>
+  <data name="PreferencesTitle" xml:space="preserve"><value>Preferencje</value></data>
+  <data name="GameSaveDirectoryLabel" xml:space="preserve"><value>Zapisuj nowe partie w folderze:</value></data>
+  <data name="BrowseFolder" xml:space="preserve"><value>Przeglądaj…</value></data>
+  <data name="SavePreferences" xml:space="preserve"><value>Zapisz</value></data>
+  <data name="CancelPreferences" xml:space="preserve"><value>Anuluj</value></data>
+  <data name="ChooseGameSaveDirectory" xml:space="preserve"><value>Wybierz folder zapisu partii</value></data>
+  <data name="InvalidGameSaveDirectory" xml:space="preserve"><value>Wpisz bezwzględną ścieżkę folderu lub wybierz folder przyciskiem Przeglądaj.</value></data>
+  <data name="AnalysisTitle" xml:space="preserve"><value>Analiza</value></data>
+  <data name="PositionAnalysis" xml:space="preserve"><value>Analiza pozycji</value></data>
+  <data name="GameAnalysis" xml:space="preserve"><value>Analiza partii</value></data>
+  <data name="AnalysisResults" xml:space="preserve"><value>Analiza silnika</value></data>
+  <data name="AnalysisNotAvailable" xml:space="preserve"><value>Analiza silnika nie jest jeszcze dostępna. Możesz przeglądać pozycje i odtwarzać partie.</value></data>
+  <data name="AnalysisEmptyResults" xml:space="preserve"><value>Ocena: —
+Najlepszy ruch: —
+Wariant główny: —</value></data>
+  <data name="AnalysisStart" xml:space="preserve"><value>Rozpocznij analizę</value></data>
+  <data name="AnalysisStartingPosition" xml:space="preserve"><value>Pozycja początkowa</value></data>
+  <data name="AnalysisFlipBoard" xml:space="preserve"><value>Obróć szachownicę</value></data>
+  <data name="PositionAnalysisNotice" xml:space="preserve"><value>Przeglądaj pozycję wczytaną z pliku lub otwartą z edytora albo przebiegu partii. Szachownica służy tylko do odczytu; pozycja źródłowa pozostaje zachowana.</value></data>
+  <data name="AnalysisFen" xml:space="preserve"><value>Pozycja (FEN)</value></data>
+  <data name="AnalysisLoadExample" xml:space="preserve"><value>Wczytaj przykładową partię</value></data>
+  <data name="AnalysisMoves" xml:space="preserve"><value>Ruchy partii — wybierz ruch, aby zobaczyć pozycję po nim</value></data>
+  <data name="AnalysisFirst" xml:space="preserve"><value>Początek</value></data>
+  <data name="AnalysisPrevious" xml:space="preserve"><value>Poprzedni</value></data>
+  <data name="AnalysisNext" xml:space="preserve"><value>Następny</value></data>
+  <data name="AnalysisLast" xml:space="preserve"><value>Koniec</value></data>
+  <data name="AnalysisOpenPosition" xml:space="preserve"><value>Otwórz w analizie pozycji</value></data>
+  <data name="AnalysisInitialPosition" xml:space="preserve"><value>Pozycja początkowa</value></data>
+  <data name="AnalysisWhiteToMove" xml:space="preserve"><value>Ruch białych</value></data>
+  <data name="AnalysisBlackToMove" xml:space="preserve"><value>Ruch czarnych</value></data>
+  <data name="AnalysisPlyStatus" xml:space="preserve"><value>Pozycja {0} z {1} · {2}</value></data>
+  <data name="AnalysisGameSummary" xml:space="preserve"><value>{0} — {1} · {2}</value></data>
+  <data name="NewGame" xml:space="preserve"><value>Nowa partia</value></data>
+  <data name="Editor" xml:space="preserve"><value>Edytor</value></data>
+  <data name="OpponentLabel" xml:space="preserve"><value>Przeciwnik</value></data>
+  <data name="OpponentEngine" xml:space="preserve"><value>Silnik</value></data>
+  <data name="OpponentFriend" xml:space="preserve"><value>Znajomy (ten sam komputer)</value></data>
+  <data name="RandomColour" xml:space="preserve"><value>Losowo</value></data>
+  <data name="ExitApplication" xml:space="preserve"><value>Zakończ</value></data>
+  <data name="PositionMenu" xml:space="preserve"><value>Pozycja</value></data>
+  <data name="GamePgn" xml:space="preserve"><value>Zapis partii (PGN)</value></data>
+  <data name="CopyNotation" xml:space="preserve"><value>Kopiuj</value></data>
+  <data name="SelectAllNotation" xml:space="preserve"><value>Zaznacz wszystko</value></data>
+  <data name="PgnDisplayUnavailable" xml:space="preserve"><value>Nie można wyświetlić zapisu partii.</value></data>
+</root>
