@@ -104,7 +104,14 @@ namespace Triglav.Chess.Engine.Tests.AlgorithmComparisonTests
         {
             String pair = $"{left.Algorithm} vs {right.Algorithm}";
             Add("Result", left.Evaluation.Result, right.Evaluation.Result);
-            Add("InNMoves", left.Evaluation.InNMoves, right.Evaluation.InNMoves);
+            // Nonterminal InNMoves is internal search metadata: MinMax leaves it
+            // at zero, while PositionTree stores the evaluated node depth there.
+            // It represents result distance only when at least one side is terminal.
+            if (left.Evaluation.EvaluationValue == Evaluation.EvaluationNaN
+                || right.Evaluation.EvaluationValue == Evaluation.EvaluationNaN)
+            {
+                Add("InNMoves", left.Evaluation.InNMoves, right.Evaluation.InNMoves);
+            }
             Add("EvaluationValue", left.Evaluation.EvaluationValue, right.Evaluation.EvaluationValue);
             Add("Move.From", left.Move.Move.From, right.Move.Move.From);
             Add("Move.To", left.Move.Move.To, right.Move.Move.To);
