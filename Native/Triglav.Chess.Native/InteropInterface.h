@@ -35,9 +35,9 @@ extern "C" {  // only need to export C interface if
 
     __declspec(dllexport) ulong TriglavChess_External_GetAttackedFieldsForHeuristicWhite(const PositionData position);
 
-    __declspec(dllexport) ulong TriglavChess_External_GetAttackedFieldsForHeuristicBlack(const PositionData position);
-
-    __declspec(dllexport) int32_t TriglavChess_External_GetMovesNoCheckValidation(const PositionData position, MoveWithPieceStruct* restrict result, const int32_t onMove);
+	__declspec(dllexport) ulong TriglavChess_External_GetAttackedFieldsForHeuristicBlack(const PositionData position);
+	
+	__declspec(dllexport) int32_t TriglavChess_External_GetMovesNoCheckValidation(const PositionData position, MoveWithPieceStruct* restrict result, const int32_t onMove);
 
     __declspec(dllexport) int32_t TriglavChess_External_GetMovesNoCheckValidationWhite(const PositionData position, MoveWithPieceStruct* restrict result);
 

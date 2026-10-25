@@ -6,46 +6,50 @@
 
 ulong TriglavChess_External_GetAttackedFieldsWhite(const PositionData position)
 {
-    const ulong takenFields = position.TakenFields;
-    const ulong pieceColours = position.PieceColours;
-    const ulong whitePieces = takenFields ^ pieceColours;
+	const ulong takenFields = position.TakenFields;
+	const ulong pieceColours = position.PieceColours;
+	ulong whitePieces = takenFields ^ pieceColours;
 
-    ulong result = 0;
-    ulong mask = MASK;
-    int hasWhiteKingMoved = HasWhiteKingMoved(position.Pieces_2, position.WhiteKingLocation);
-    for (int i = 0; i < 64; i++, mask <<= 1)
-    {
-        if (whitePieces & mask)
-        {
-            result |= TriglavChess_GetAttackedFieldsWhiteSinglePiece(takenFields, hasWhiteKingMoved,
-                GetPiece(position.Pieces_0, position.Pieces_1, position.Pieces_2, mask, i), 
-                CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
-        }
-    }
+	ulong result = 0;
+	ulong mask = MASK;
+	int hasWhiteKingMoved = HasWhiteKingMoved(position.Pieces_2, position.WhiteKingLocation);
+	int i;
+	while (whitePieces)
+	{
+		i = TriglavChess_GetFirstSetBitIndex(whitePieces);
+		mask = MASK << i;
+		whitePieces &= ~mask;
 
-    return result;
+		result |= TriglavChess_GetAttackedFieldsWhiteSinglePiece(takenFields, hasWhiteKingMoved,
+			GetPiece(position.Pieces_0, position.Pieces_1, position.Pieces_2, mask, i),
+			CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+	}
+
+	return result;
 }
 
 ulong TriglavChess_External_GetAttackedFieldsBlack(const PositionData position)
 {
-    const ulong takenFields = position.TakenFields;
-    const ulong pieceColours = position.PieceColours;
-    const ulong whitePieces = takenFields ^ pieceColours;
+	const ulong takenFields = position.TakenFields;
+	const ulong pieceColours = position.PieceColours;
+	ulong blackPieces = takenFields & pieceColours;
 
-    ulong result = 0;
-    ulong mask = MASK;
-    int hasBlackKingMoved = HasBlackKingMoved(position.Pieces_2, position.BlackKingLocation);
-    for (int i = 0; i < 64; i++, mask <<= 1)
-    {
-        if (takenFields & pieceColours & mask)
-        {
-            result |= TriglavChess_GetAttackedFieldsBlackSinglePiece(takenFields, hasBlackKingMoved,
-                GetPiece(position.Pieces_0, position.Pieces_1, position.Pieces_2, mask, i),
-                CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
-        }
-    }
+	ulong result = 0;
+	ulong mask = MASK;
+	int hasBlackKingMoved = HasBlackKingMoved(position.Pieces_2, position.BlackKingLocation);
+	int i;
+	while (blackPieces)
+	{
+		i = TriglavChess_GetFirstSetBitIndex(blackPieces);
+		mask = MASK << i;
+		blackPieces &= ~mask;
 
-    return result;
+		result |= TriglavChess_GetAttackedFieldsBlackSinglePiece(takenFields, hasBlackKingMoved,
+			GetPiece(position.Pieces_0, position.Pieces_1, position.Pieces_2, mask, i),
+			CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+	}
+
+	return result;
 }
 
 ulong TriglavChess_External_GetAttackedFieldsWhite_BitwiseLoop(const PositionData position)
