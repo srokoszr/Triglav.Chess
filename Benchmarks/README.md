@@ -33,7 +33,7 @@ not flipped. This avoids treating artificial colour mirrors as distinct workload
 Build native and managed projects in Release, then run:
 
 ```powershell
-python Benchmarks/run_full_depth.py --date 2026-10-24 --run-name MinMaxConsolidated
+./Benchmarks/run-full-depth.ps1 -Date 2026-10-24 -RunName MinMaxConsolidated
 ```
 
 Use a new run name because the retained four-backend dataset has a different API,
@@ -43,7 +43,7 @@ duplicate runners for the same dataset. It verifies all 16 retained measurements
 and matching timing/memory search policies. There is no runtime timeout or sample
 reduction. Do not rebuild binaries during the run. To stop between cases, create
 `Results/MinMaxConsolidated/stop-after-case`. Regenerate reports and charts with
-`python Benchmarks/full_depth_report.py --run-name MinMaxConsolidated`.
+`./Benchmarks/write-full-depth-report.ps1 -RunName MinMaxConsolidated`.
 
 ## Earlier full-depth rerun (2026-10-18, stopped)
 
@@ -65,11 +65,12 @@ The historical run cannot be resumed with the changed binaries and policy. The
 current command starts or resumes the separate fixed-depth dataset. No ongoing
 notification or hourly monitoring is configured.
 
-Plotting requires Python with Matplotlib and NumPy. Dependencies can be installed
-in the workspace with `python -m pip install --target artifacts/benchmark_plot_dependencies matplotlib`.
-Regenerate the historical report with `python Benchmarks/full_depth_report.py --run-name FullDepthRerun`; chart data
-refreshes every four newly completed cases and at completion. Report text and CSV
-refresh after each case. The runner reloads the report generator on refresh.
+The report generator is implemented entirely in PowerShell and writes portable
+SVG charts without Python or plotting-package dependencies. Regenerate the
+historical report with
+`./Benchmarks/write-full-depth-report.ps1 -RunName FullDepthRerun`; chart data
+refreshes after each newly completed scenario group and at completion. Report
+text and CSV refresh after each case.
 
 The matrix coverage test and four Rc5 fixture/history tests pass in Release.
 The fixed-depth correctness assessment covers all 33 scenarios through depth 3;
@@ -155,35 +156,33 @@ native allocation counts, a hard upper bound or WASM requirements.
 
 Build the native project with Visual Studio MSBuild, `Configuration=Release`,
 `Platform=x64`, and `SolutionDir` set to the repository root with a trailing slash.
-Then run from the repository root:
+Build the managed benchmark project in Release, then run from the repository root:
 
 ```powershell
 dotnet build Benchmarks/Triglav.Chess.Engine.Benchmarks/Triglav.Chess.Engine.Benchmarks.csproj -c Release --no-restore
-# Continue after a successful build.
-& 'Benchmarks/Triglav.Chess.Engine.Benchmarks/bin/x64/Release/net10.0/Triglav.Chess.Engine.Benchmarks.exe' --search-comparison-check
-& 'Benchmarks/Triglav.Chess.Engine.Benchmarks/bin/x64/Release/net10.0/Triglav.Chess.Engine.Benchmarks.exe' --algorithm-memory Benchmarks/Results/AlgorithmDepths1To5/memory-samples.json
-& 'Benchmarks/Triglav.Chess.Engine.Benchmarks/bin/x64/Release/net10.0/Triglav.Chess.Engine.Benchmarks.exe' --search-comparison --filter '*' --exporters json markdown --artifacts Benchmarks/Triglav.Chess.Engine.Benchmarks/Output/AlgorithmDepths1To5/Search
+./Benchmarks/run-full-depth.ps1 -Date 2026-10-24 -RunName MinMaxConsolidated
 ```
 
-The memory measurements are Windows-only and run sequentially. Do not run the
-suites concurrently: competing workloads distort timing. `--no-restore` assumes
-dependencies have been restored. The existing enumerator benchmark remains the
-default when no comparison switch is supplied.
-
-To regenerate the original depth-scaling report from retained artifacts, use the two `*-report-full-compressed.json`
-files as `minmax-measurements.json` and `search-measurements.json` beside
-`memory-samples.json`. Retain their Markdown reports with the corresponding
-`minmax-benchmarkdotnet-report.md` / `search-benchmarkdotnet-report.md` names, and
-the preflight JSON as `search-results.json`. Update `run-info.json` with the run
-date and the native DLL SHA-256, then run:
+Successful checkpoints are skipped when that command is rerun. Add
+`-RetryFailed` to retry failed cases. Reports can be regenerated without running
+benchmarks:
 
 ```powershell
-python Benchmarks/summarize_algorithm_run.py Benchmarks/Results/AlgorithmDepths1To5
+./Benchmarks/write-full-depth-report.ps1 -RunName MinMaxConsolidated
 ```
 
-The report generator requires the original 130 cases with 20 retained timing samples and
-312 memory samples; it rejects incomplete runs. Historical reports remain
-separate so that new results do not silently replace data from older settings.
+The optional completion watcher can validate a run without changing power state:
+
+```powershell
+./Benchmarks/watch-benchmark-completion.ps1 -RunDirectory Benchmarks/Results/MinMaxConsolidated -CheckOnly
+```
+
+Omit `-CheckOnly` only when Windows should sleep after every timing export,
+memory sample, summary, SVG chart, and runner-lock check succeeds. The memory
+measurements are Windows-only and run sequentially. Do not run suites
+concurrently: competing workloads distort timing. `--no-restore` assumes
+dependencies have already been restored. Historical reports remain separate so
+new results do not silently replace data from older settings.
 
 ## Recorded run profiles
 
