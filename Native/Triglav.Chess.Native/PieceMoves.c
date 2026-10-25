@@ -6,7 +6,8 @@ int TriglavChess_External_GetMovesNoCheckValidationWhite(const PositionData posi
 {
     const ulong takenFields = position.TakenFields;
     const ulong pieceColours = position.PieceColours;
-	ulong whitePieces = takenFields ^ pieceColours;
+	const ulong whitePieces = takenFields ^ pieceColours;
+	ulong whitePiecesItr = whitePieces;
         
     ulong mask = MASK;
     int resultCount = 0;
@@ -14,10 +15,11 @@ int TriglavChess_External_GetMovesNoCheckValidationWhite(const PositionData posi
     int candidate;
 
 	int i;
-	while (whitePieces)
+	while (whitePiecesItr)
 	{
-		i = TriglavChess_GetFirstSetBitIndex(whitePieces);
+		i = TriglavChess_GetFirstSetBitIndex(whitePiecesItr);
 		mask = MASK << i;
+		whitePiecesItr &= ~mask;
 
 		int row = CoordinatesGetRow(i);
 		int column = CoordinatesGetColumn(i);
@@ -459,8 +461,6 @@ int TriglavChess_External_GetMovesNoCheckValidationWhite(const PositionData posi
 			break;
 		}
 		}
-
-		whitePieces &= ~mask;
 	}
 
     return resultCount;
@@ -483,6 +483,7 @@ int TriglavChess_External_GetMovesNoCheckValidationBlack(const PositionData posi
 	{
 		i = TriglavChess_GetFirstSetBitIndex(blackPieces);
 		mask = MASK << i;
+		blackPieces &= ~mask;
 
 		int row = CoordinatesGetRow(i);
 		int column = CoordinatesGetColumn(i);
@@ -924,8 +925,6 @@ int TriglavChess_External_GetMovesNoCheckValidationBlack(const PositionData posi
 			break;
 		}
 		}
-
-		blackPieces &= ~mask;
 	}
 
     return resultCount;
