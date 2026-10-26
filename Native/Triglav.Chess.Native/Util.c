@@ -1,6 +1,6 @@
 #include "Util.h"
 #include "InteropTypes.h"
-
+#include <assert.h>
 #include <intrin.h>
 
 int TriglavChess_popcount(ulong x)
@@ -20,6 +20,10 @@ int TriglavChess_popcount(ulong x)
 
 int8_t TriglavChess_GetSetBitIndex(ulong x)
 {
+#if defined(_DEBUG)
+	assert(x == 0);
+#endif
+
     unsigned long index;
     //Microsoft magic function
     (void)_BitScanForward64(&index, x);
@@ -29,6 +33,9 @@ int8_t TriglavChess_GetSetBitIndex(ulong x)
 
 int TriglavChess_GetFirstSetBitIndex(ulong x)
 {
+#if defined(_DEBUG)
+	assert(x == 0);
+#endif
 	unsigned long index;
 	//Microsoft magic function
 	(void)_BitScanForward64(&index, x);

@@ -5,6 +5,10 @@
 #include "Util.h"
 
 
+static ulong TriglavChess_GetAttackedFieldsWhitePrecomputed(const ulong takenFields, const int hasBlackKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
+static ulong TriglavChess_GetAttackedFieldsBlackPrecomputed(const ulong takenFields, const int hasBlackKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
+
+
 ulong TriglavChess_External_GetAttackedFieldsWhite(const PositionData position)
 {
 	const ulong takenFields = position.TakenFields;
@@ -21,7 +25,7 @@ ulong TriglavChess_External_GetAttackedFieldsWhite(const PositionData position)
 		mask = MASK << i;
 		whitePieces &= ~mask;
 
-		result |= TriglavChess_GetAttackedFieldsWhiteSinglePiece(takenFields, hasWhiteKingMoved,
+		result |= TriglavChess_GetAttackedFieldsWhitePrecomputed(takenFields, hasWhiteKingMoved,
 			GetPiece(position.Pieces_0, position.Pieces_1, position.Pieces_2, mask, i),
 			CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
 	}
@@ -45,17 +49,13 @@ ulong TriglavChess_External_GetAttackedFieldsBlack(const PositionData position)
 		mask = MASK << i;
 		blackPieces &= ~mask;
 
-		result |= TriglavChess_GetAttackedFieldsBlackSinglePiece(takenFields, hasBlackKingMoved,
+		result |= TriglavChess_GetAttackedFieldsBlackPrecomputed(takenFields, hasBlackKingMoved,
 			GetPiece(position.Pieces_0, position.Pieces_1, position.Pieces_2, mask, i),
 			CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
 	}
 
 	return result;
 }
-
-static ulong TriglavChess_GetAttackedFieldsWhitePrecomputed(const ulong takenFields, const int hasBlackKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
-static ulong TriglavChess_GetAttackedFieldsBlackPrecomputed(const ulong takenFields, const int hasBlackKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
-
 ulong TriglavChess_External_GetAttackedFieldsWhite_BitwiseLoop(const PositionData position)
 {
 	const ulong takenFields = position.TakenFields;
@@ -1323,7 +1323,7 @@ inline static ulong TriglavChess_GetAttackedFieldsBlackPrecomputed(const ulong t
 	{
 	case Pawn:
 	{
-		return PieceMovesAttackedFields_WhitePawn[singleCoordinate];
+		return PieceMovesAttackedFields_BlackPawn[singleCoordinate];
 	}
 	case Rook:
 	{
@@ -1378,11 +1378,11 @@ inline static ulong TriglavChess_GetAttackedFieldsBlackPrecomputed(const ulong t
 	}
 	case Knight:
 	{
-		return PieceMovesAttackedFields_WhiteKnight[singleCoordinate];
+		return PieceMovesAttackedFields_BlackKnight[singleCoordinate];
 	}
 	case Bishop:
 	{
-		return PieceMovesAttackedFields_WhiteBishop[singleCoordinate];
+		return PieceMovesAttackedFields_BlackBishop[singleCoordinate];
 	}
 	case Queen:
 	{
@@ -1427,15 +1427,15 @@ inline static ulong TriglavChess_GetAttackedFieldsBlackPrecomputed(const ulong t
 	}
 	case QueenMoved:
 	{
-		return PieceMovesAttackedFields_WhiteQueen[singleCoordinate];
+		return PieceMovesAttackedFields_BlackQueen[singleCoordinate];
 	}
 	case King:
 	{
-		return PieceMovesAttackedFields_WhiteKingFirstMoves;
+		return PieceMovesAttackedFields_BlackKingFirstMoves;
 	}
 	case KingMoved:
 	{
-		return PieceMovesAttackedFields_WhiteKing[singleCoordinate];
+		return PieceMovesAttackedFields_BlackKing[singleCoordinate];
 	}
 	}
 
@@ -1454,23 +1454,7 @@ ulong TriglavChess_GetAttackedFieldsWhiteMovedPiece(const ulong takenFields, con
     {
         case Pawn:
         {
-            /*
-            if (column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column + 1);
-            }
-
-            if (column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column - 1);
-            }*/
-
-            /*return ((column <= 6) * (MASK << GetSingleCoordinate(row - 1, column + 1)))
-                | ((column > 0) * (MASK << GetSingleCoordinate(row - 1, column - 1)));*/
-            return ((column <= 6) * (MASK << (singleCoordinate - 8 + 1)))
-                | ((column > 0) * (MASK << (singleCoordinate - 8 - 1)));
-
-            //break;
+			return PieceMovesAttackedFields_WhitePawn[singleCoordinate];
         }
         case Rook:
         {
@@ -1523,146 +1507,22 @@ ulong TriglavChess_GetAttackedFieldsWhiteMovedPiece(const ulong takenFields, con
 
             break;
         }
-        case Knight:
-        {
-            if (row <= 5 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 2, column + 1);
-            }
-
-            if (row <= 5 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 2, column - 1);
-            }
-
-            if (row <= 6 && column <= 5)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column + 2);
-            }
-
-            if (row <= 6 && column > 1)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column - 2);
-            }
-
-            if (row > 0 && column <= 5)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column + 2);
-            }
-
-            if (row > 0 && column > 1)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column - 2);
-            }
-
-            if (row > 1 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 2, column + 1);
-            }
-
-            if (row > 1 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 2, column - 1);
-            }
-
-            break;
-        }
-        case Bishop:
-        {
-            /*if (row <= 5 && column <= 5)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 2, column + 2);
-            }
-            if (row <= 5 && column > 1)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 2, column - 2);
-            }
-
-            if (row > 1 && column <= 5)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 2, column + 2);
-            }
-
-            if (row > 1 && column > 1)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 2, column - 2);
-            }
-
-            break;*/
-
-            return ((row <= 5 && column <= 5) * (MASK << GetSingleCoordinate(row + 2, column + 2)))
-                | ((row <= 5 && column > 1) * (MASK << GetSingleCoordinate(row + 2, column - 2)))
-                | ((row > 1 && column <= 5) * (MASK << GetSingleCoordinate(row - 2, column + 2)))
-                | ((row > 1 && column > 1) * (MASK << GetSingleCoordinate(row - 2, column - 2)));
-        }
-        case QueenMoved:
-        {
-            if (row <= 6 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column + 1);
-            }
-
-            if (row <= 6 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column - 1);
-            }
-
-            if (row > 0 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column + 1);
-            }
-
-            if (row > 0 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column - 1);
-            }
-
-            break;
-        }
-        case KingMoved:
-        {
-            if (row <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column);
-            }
-
-            if (row <= 6 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column + 1);
-            }
-
-            if (row <= 6 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column - 1);
-            }
-
-            if (column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row, column + 1);
-            }
-
-            if (column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row, column - 1);
-            }
-
-            if (row > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column);
-            }
-
-            if (row > 0 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column + 1);
-            }
-
-            if (row > 0 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column - 1);
-            }
-
-            break;
-        }
+		case Knight:
+		{
+			return PieceMovesAttackedFields_WhiteKnight[singleCoordinate];
+		}
+		case Bishop:
+		{
+			return PieceMovesAttackedFields_WhiteBishop[singleCoordinate];
+		}
+		case QueenMoved:
+		{
+			return PieceMovesAttackedFields_WhiteQueen[singleCoordinate];
+		}
+		case KingMoved:
+		{
+			return PieceMovesAttackedFields_WhiteKing[singleCoordinate];
+		}
         default:
         {
             return 0;
@@ -1682,24 +1542,7 @@ ulong TriglavChess_GetAttackedFieldsBlackMovedPiece(const ulong takenFields, con
     {
         case Pawn:
         {
-            /*
-            if (column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column + 1);
-            }
-
-            if (column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column - 1);
-            }*/
-
-            /*return ((column <= 6) * (MASK << GetSingleCoordinate(row + 1, column + 1)))
-                | ((column > 0) * (MASK << GetSingleCoordinate(row + 1, column - 1)));*/
-
-            return ((column <= 6) * (MASK << (singleCoordinate + 8 + 1)))
-                | ((column > 0) * (MASK << (singleCoordinate + 8 - 1)));
-
-            //break;
+			return PieceMovesAttackedFields_BlackPawn[singleCoordinate];
         }
         case Rook:
         {
@@ -1752,147 +1595,22 @@ ulong TriglavChess_GetAttackedFieldsBlackMovedPiece(const ulong takenFields, con
 
             break;
         }
-        case Knight:
-        {
-            if (row <= 5 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 2, column + 1);
-            }
-
-            if (row <= 5 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 2, column - 1);
-            }
-
-            if (row <= 6 && column <= 5)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column + 2);
-            }
-
-            if (row <= 6 && column > 1)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column - 2);
-            }
-
-            if (row > 0 && column <= 5)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column + 2);
-            }
-
-            if (row > 0 && column > 1)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column - 2);
-            }
-
-            if (row > 1 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 2, column + 1);
-            }
-
-            if (row > 1 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 2, column - 1);
-            }
-
-            break;
-        }
-        case Bishop:
-        {
-            /*if (row <= 5 && column <= 5)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 2, column + 2);
-            }
-            if (row <= 5 && column > 1)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 2, column - 2);
-            }
-
-            if (row > 1 && column <= 5)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 2, column + 2);
-            }
-
-            if (row > 1 && column > 1)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 2, column - 2);
-            }
-
-            break;*/
-
-            return ((row <= 5 && column <= 5) * (MASK << GetSingleCoordinate(row + 2, column + 2)))
-                | ((row <= 5 && column > 1) * (MASK << GetSingleCoordinate(row + 2, column - 2)))
-                | ((row > 1 && column <= 5) * (MASK << GetSingleCoordinate(row - 2, column + 2)))
-                | ((row > 1 && column > 1) * (MASK << GetSingleCoordinate(row - 2, column - 2)));
-        }
-        case QueenMoved:
-        {
-            if (row <= 6 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column + 1);
-            }
-
-            if (row <= 6 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column - 1);
-            }
-
-            if (row > 0 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column + 1);
-            }
-
-            if (row > 0 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column - 1);
-            }
-
-            break;
-        }
-        case KingMoved:
-        {
-            if (row <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column);
-            }
-
-            if (row <= 6 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column + 1);
-            }
-
-            if (row <= 6 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row + 1, column - 1);
-            }
-
-            if (column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row, column + 1);
-            }
-
-            if (column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row, column - 1);
-            }
-
-
-            if (row > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column);
-            }
-
-            if (row > 0 && column <= 6)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column + 1);
-            }
-
-            if (row > 0 && column > 0)
-            {
-                candidates |= MASK << GetSingleCoordinate(row - 1, column - 1);
-            }
-
-            break;
-        }
+		case Knight:
+		{
+			return PieceMovesAttackedFields_BlackKnight[singleCoordinate];
+		}
+		case Bishop:
+		{
+			return PieceMovesAttackedFields_BlackBishop[singleCoordinate];
+		}
+		case QueenMoved:
+		{
+			return PieceMovesAttackedFields_BlackQueen[singleCoordinate];
+		}
+		case KingMoved:
+		{
+			return PieceMovesAttackedFields_BlackKing[singleCoordinate];
+		}
         default:
         {
             return 0;

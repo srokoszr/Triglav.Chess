@@ -164,19 +164,19 @@ void TriglavChess_External_PrecomputedMoves_Initialise(void)
 	{
 		mask = MASK << i;
 
-		PieceMovesAttackedFields_WhitePawn[0] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, Pawn, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
-		PieceMovesAttackedFields_BlackPawn[0] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, Pawn, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_WhitePawn[i] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, Pawn, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_BlackPawn[i] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, Pawn, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
 
-		PieceMovesAttackedFields_WhiteBishop[0] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, Bishop, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
-		PieceMovesAttackedFields_BlackBishop[0] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, Bishop, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_WhiteBishop[i] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, Bishop, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_BlackBishop[i] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, Bishop, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
 
-		PieceMovesAttackedFields_WhiteKnight[0] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, Knight, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
-		PieceMovesAttackedFields_BlackKnight[0] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, Knight, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_WhiteKnight[i] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, Knight, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_BlackKnight[i] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, Knight, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
 
-		PieceMovesAttackedFields_WhiteKing[0] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, KingMoved, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
-		PieceMovesAttackedFields_BlackKing[0] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, KingMoved, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_WhiteKing[i] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, KingMoved, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_BlackKing[i] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, KingMoved, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
 
-		PieceMovesAttackedFields_WhiteQueen[0] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, QueenMoved, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
-		PieceMovesAttackedFields_BlackQueen[0] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, QueenMoved, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_WhiteQueen[i] = TriglavChess_GetAttackedFieldsWhiteForPrecompute(0, 0, QueenMoved, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
+		PieceMovesAttackedFields_BlackQueen[i] = TriglavChess_GetAttackedFieldsBlackForPrecompute(0, 0, QueenMoved, CoordinatesGetRow(i), CoordinatesGetColumn(i), i);
 	}
 }

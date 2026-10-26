@@ -24,9 +24,9 @@
 #define IsWhiteKingAlone(position) ((position.TakenFields ^ position.PieceColours) == (MASK << position.WhiteKingLocation))
 #define IsBlackKingAlone(position) (position.PieceColours == (MASK << position.BlackKingLocation))
 
-ulong TriglavChess_GetAttackedFieldsWhiteSinglePiece(const ulong takenFields, const int hasWhiteKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
+//ulong TriglavChess_GetAttackedFieldsWhiteSinglePiece(const ulong takenFields, const int hasWhiteKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
 
-ulong TriglavChess_GetAttackedFieldsBlackSinglePiece(const ulong takenFields, const int hasBlackKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
+//ulong TriglavChess_GetAttackedFieldsBlackSinglePiece(const ulong takenFields, const int hasBlackKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
 
 ulong TriglavChess_GetAttackedFieldsWhiteForPrecompute(const ulong takenFields, const int hasWhiteKingMoved, const Pieces piece, const int row, const int column, const int singleCoordinate);
 
